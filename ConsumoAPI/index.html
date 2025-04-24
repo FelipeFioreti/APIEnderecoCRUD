@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo API - ViaCEP</title>
+
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="assets/script/script.js"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#" class="">CRUDEndereços</a>
+                </div>
+                <ul class="menu">
+                    <li><a href="#consulta">Consulta</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="card container">
+            <h1>Consulta de Endereço ViaCEP</h1>
+
+            <div class="campo">
+                <label for="cep">CEP: </label>
+                <input type="text" name="cep" maxlength="9" placeholder="Digite o CEP" id="cep">
+            </div>
+            
+            <div class="campo campo-botao">
+                <button type="button" class="btn-consultar" onclick="buscarCEP()">Consultar Endereço</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@APITrabalhoWilton_HostAddress = http://localhost:5010
+
+// Talvez tenha que voltar a rota para weatherforecast
+
+GET {{APITrabalhoWilton_HostAddress}}/endereco/
+Accept: application/json
+
+###

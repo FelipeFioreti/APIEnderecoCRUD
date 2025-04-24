@@ -1,0 +1,144 @@
+[
+  {
+    "ContainingType": "APITrabalhoWilton.Controllers.EnderecoController",
+    "Method": "PostDatabase",
+    "RelativePath": "api/Endereco",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cep",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "complemento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "numero",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "PostEndereco"
+  },
+  {
+    "ContainingType": "APITrabalhoWilton.Controllers.EnderecoController",
+    "Method": "DeleteEndereco",
+    "RelativePath": "api/Endereco",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "DeleteEndereco"
+  },
+  {
+    "ContainingType": "APITrabalhoWilton.Controllers.EnderecoController",
+    "Method": "PutEndereco",
+    "RelativePath": "api/Endereco",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "cep",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "complemento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "numero",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "PutEndereco"
+  },
+  {
+    "ContainingType": "APITrabalhoWilton.Controllers.EnderecoController",
+    "Method": "GetEnderecoDatabase",
+    "RelativePath": "api/Endereco/EnderecoDatabase",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[APITrabalhoWilton.DTOs.GetEnderecoDatabaseDTO, APITrabalhoWilton, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetEnderecoDatabase"
+  },
+  {
+    "ContainingType": "APITrabalhoWilton.Controllers.EnderecoController",
+    "Method": "GetEnderecoViaCep",
+    "RelativePath": "api/Endereco/EnderecoViaCep",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cep",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APITrabalhoWilton.DTOs.GetEnderecoViaCepDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetEnderecoViaCep"
+  }
+]
