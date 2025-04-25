@@ -80,14 +80,41 @@ main .card input{
     font-size: 1.2em;
 }
 
-.btn-consultar {
-    width: 50%;
-    height: 90px;
-    background-color: rgb(9, 165, 53);
+.retorno{
+    display: none;
+}
+
+main .card .retorno .adicional{
+    margin: 0.5em 0;
+}
+
+main .card .retorno input{
+    margin: 0;
+    padding: 0.4em;
+}
+
+main .card .retorno .numero{
+    width: 20%;
+}
+
+main .card .retorno .complemento{
+    width: 90%;
+    height: 150px;
+}
+
+main .card .retorno .resposta .h3{
+    margin: 0.5em 0;
+}
+
+main .card .retorno .valor-resposta{
+    font-size: 1.3em;
+}
+
+.btn{
+    margin: 0 1em;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1.6em;
     font-weight: bold;
     cursor: pointer;
@@ -95,12 +122,34 @@ main .card input{
     box-shadow: 1px 1px 8px 0px #000000ba;
 }
 
-.btn-consultar:hover {
+.btn-cadastrar {
+    font-size: 1.6em;
+    padding: 0;
+    width: 40%;
+    height: 80px;
+    background-color: rgb(9, 165, 53);
+}
+
+.btn-cadastrar:hover {
     background-color: rgb(19, 131, 50);
 }
 
-.btn-consultar:active {
+.btn-cadastrar:active {
     background-color: rgb(9, 84, 30);
+}
+
+.btn-consultar {
+    width: 50%;
+    height: 90px;
+    background-color: #2196F3;
+}
+
+.btn-consultar:hover {
+    background-color: #1e639c;
+}
+
+.btn-consultar:active {
+    background-color: #08477a;
 }
 
 .address {
@@ -116,4 +165,4 @@ main .card input{
 
 .container{
     margin: auto;
-    }
+}

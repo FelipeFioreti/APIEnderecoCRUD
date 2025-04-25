@@ -13,7 +13,7 @@
         <header>
             <nav class="navbar">
                 <div class="logo">
-                    <a href="#" class="">CRUDEndereços</a>
+                    <a href="#" class="">CRUD Endereços</a>
                 </div>
                 <ul class="menu">
                     <li><a href="#consulta">Consulta</a></li>
@@ -31,8 +31,70 @@
                 <input type="text" name="cep" maxlength="9" placeholder="Digite o CEP" id="cep">
             </div>
             
-            <div class="campo campo-botao">
-                <button type="button" class="btn-consultar" onclick="buscarCEP()">Consultar Endereço</button>
+            <div id="retorno" class="retorno">
+
+                <div class="resposta">
+                    <h3>
+                        Logradouro
+                    </h3>
+
+                    <span id="logradouro" class="valor-resposta">
+
+                    </span>
+                </div>
+
+                <div class="adiconal">
+                    <h3>
+                        Complemento
+                    </h3>
+
+                    <input class="adiconal-input complemento" type="text" name="numero" id="complemento">
+                </div>
+                
+                <div class="adiconal">
+                    <h3>
+                        Numero
+                    </h3>
+
+                    <input class="adiconal-input numero" type="text" name="numero" id="numero">
+                </div>
+
+                <div class="resposta">
+                    <h3>
+                        Bairro
+                    </h3>
+
+                    <span id="bairro" class="valor-resposta">
+
+                    </span>
+                </div>
+
+                <div class="resposta">
+                    <h3>
+                        Cidade  
+                    </h3>
+
+                    <span id="cidade" class="valor-resposta">
+
+                    </span>
+                </div>
+
+                <div class="resposta">
+                    <h3>
+                        Estado
+                    </h3>
+
+                    <span id="estado" class="valor-resposta">
+
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="campo-botao">
+                <button type="button" class="btn btn-consultar" onclick="buscarCEP()">Consultar Endereço</button>
+                <button type="button" id="btn-cadastrar" class="btn btn-cadastrar retorno" onclick="">Cadastrar Endereço</button>
+                
             </div>
         </section>
     </main>

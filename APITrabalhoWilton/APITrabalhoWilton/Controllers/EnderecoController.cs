@@ -9,6 +9,7 @@ using APITrabalhoWilton.DTOs;
 namespace APITrabalhoWilton.Controllers
 {
     [ApiController]
+
     [Route("api/[controller]")]
     public class EnderecoController : ControllerBase
     {

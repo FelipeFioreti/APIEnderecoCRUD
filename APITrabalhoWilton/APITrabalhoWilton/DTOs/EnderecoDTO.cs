@@ -1,6 +1,8 @@
-﻿namespace APITrabalhoWilton.DTOs
+﻿using APITrabalhoWilton.Models;
+
+namespace APITrabalhoWilton.DTOs
 {
-    public record EnderecoDTO
+    public record EnderecoDTO 
     {
         public string Cep { get; set; }
         public string Logradouro { get; set; } = String.Empty;

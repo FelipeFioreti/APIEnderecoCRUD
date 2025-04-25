@@ -12,8 +12,13 @@ const getCEP = async () => {
     return response.json;
 }
 */
+
+
 function buscarCEP() {
     const cep = document.getElementById("cep").value; 
+    const retorno = document.getElementById("retorno").style;
+    const botaoCadastro = document.getElementById("btn-cadastrar").style;
+    const classeBotao = document.querySelectorAll(".btn");
 
     if(cep.length !== 8){
         alert("CEP inválido. Digite um CEP com 8 digítos.");
@@ -25,16 +30,26 @@ function buscarCEP() {
             alert("CEP não encontrado.");
             return;
         }
+        document.getElementById("logradouro").textContent = data.logradouro || "";
 
-        document.getElementById("logradouro").value = data.logradouro || "";
-
-        document.getElementById("bairro").value = data.bairro || ""; 
+        document.getElementById("bairro").textContent = data.bairro || ""; 
         
-        document.getElementById("cidade").value = data.localidade || "";
+        document.getElementById("cidade").textContent = data.localidade || "";
 
-        document.getElementById("estado").value = data.uf || "";
+        document.getElementById("estado").textContent = data.uf || "";
+
     }).catch(error => {
         alert("Erro ao buscar CEP");
     })
+
+    retorno.display = "block";
+    botaoCadastro.display = "block";
+    classeBotao.forEach((elemento) =>{
+        elemento.style.fontSize = "1.6em";
+        elemento.style.padding = "0";
+        elemento.style.width = "40%";
+        elemento.style.height = "80px";
+    });
+    
 }
 
