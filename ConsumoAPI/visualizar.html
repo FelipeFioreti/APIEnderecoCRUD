@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -23,19 +25,76 @@
     <main>
         <section class="card container">
             <h1>Endereços</h1>
-            <div class="address">
-                <p><strong>Rua:</strong> Exemplo Rua</p>
-                <p><strong>Bairro:</strong> Exemplo Bairro</p>
-                <p><strong>Cidade:</strong> Exemplo Cidade</p>
-                <p><strong>Estado:</strong> Exemplo Estado</p>
-            </div>
-            <div class="address">
-                <p><strong>Rua:</strong> Outra Rua</p>
-                <p><strong>Bairro:</strong> Outro Bairro</p>
-                <p><strong>Cidade:</strong> Outra Cidade</p>
-                <p><strong>Estado:</strong> Outro Estado</p>
-            </div>
+
+            <table class="tabela-visualizacao">
+                <thead>
+                    <tr>
+                        <th>CEP</th>
+                        <th>Logradouro</th>
+                        <th>Complemento</th>
+                        <th>Numero</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="enderecos-lista">
+
+                    <script>
+
+                        let enderecos = [
+                            { id: "11", cep: "12345-678", logradouro: "Rua A", complemento: "aa", numero: "211", bairro: "Bairro A", cidade: "Cidade A", uf: "Estado A" },
+                            { id: "12", cep: "98765-432", logradouro: "Rua B", complemento: "bb", numero: "211", bairro: "Bairro B", cidade: "Cidade B", uf: "Estado B" }
+                        ];
+
+                        /*
+                        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(response => response.json()).then(data => {
+                            if (data.erro) {
+                                alert("Erro ao buscar Dados no banco de dados");
+                                return;
+                            }
+                            enderecos.push({
+
+                                id: data.id || "",
+                                cep: data.cep || "",
+                                logradouro: data.logradouro || "",
+                                complemento: data.complemento || "",
+                                numero: data.numero || "",
+                                bairro: data.bairro || "",
+                                cidade: data.localidade || "",
+                                uf: data.uf || ""
+                            });
+
+                        }).catch(error => {
+                            alert("Erro ao buscar CEP");
+                        })
+                        */
+                        const tbody = document.getElementById('enderecos-lista');
+
+                        enderecos.forEach(endereco => {
+                            const tr = document.createElement('tr');
+
+                            tr.innerHTML = `
+                                <td>${endereco.cep}</td>
+                                <td>${endereco.logradouro}</td>
+                                <td>${endereco.complemento}</td>
+                                <td>${endereco.numero}</td>
+                                <td>${endereco.bairro}</td>
+                                <td>${endereco.cidade}</td>
+                                <td>${endereco.uf}</td>
+                                <td><a class="btn" type="button" href="atualizar.html?id=${endereco.id}">Editar</a>
+                                <a "btn" type="button" href="deletar.html?id=${endereco.id}">Excluir</a></td>
+                            `;
+
+                            tbody.appendChild(tr);
+                        });
+
+
+                    </script>
+                </tbody>
+            </table>
         </section>
     </main>
 </body>
+
 </html>

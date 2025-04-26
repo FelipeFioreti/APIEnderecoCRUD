@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Endereço</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#" class="">CRUD Endereços</a>
+            </div>
+            <ul class="menu">
+                <li><a href="#consulta">Consulta</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="card container center">
+            <h1>Confirmar Remoção</h1>
+            <p>Você tem certeza que deseja remover o endereço?</p>
+            <button class="btn btn-deletar" onclick="alert('Endereço removido!')">Remover</button>
+        </section>
+    </main>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        function deletarEndereco() {
+            fetch(`https://viacep.com.br/ws/${id}/json/`).then(response => {
+                if (!response.ok) {
+                    console.log("Erro na requisição:", response.statusText);
+                    throw new Error("Erro na requisição");
+                }
+
+                alert("Endereço deletado com sucesso!");
+            });
+        }
+    </script>
+</body>
+
+</html>
+

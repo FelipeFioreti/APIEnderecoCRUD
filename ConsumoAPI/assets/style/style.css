@@ -65,7 +65,7 @@ main .card .campo-botao{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1em 0;
+    margin: 1.3em 0;
 }
 
 main .card label{
@@ -73,33 +73,36 @@ main .card label{
     font-weight: 550;
 }
 
-main .card input{
-    width: 90%;
-    margin: 1em 0;
-    padding: 0.8rem;
+main .card input[type="text"]{
+    width: 100%;
+    margin: 0.7em 0;
+    padding: 0.8em;
     font-size: 1.2em;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
+
+main .card input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
 }
 
 .retorno{
     display: none;
 }
 
-main .card .retorno .adicional{
-    margin: 0.5em 0;
-}
-
 main .card .retorno input{
     margin: 0;
-    padding: 0.4em;
+    padding: 0.8em;
 }
 
 main .card .retorno .numero{
     width: 20%;
-}
-
-main .card .retorno .complemento{
-    width: 90%;
-    height: 150px;
+    padding: 0.6em;
 }
 
 main .card .retorno .resposta .h3{
@@ -108,6 +111,14 @@ main .card .retorno .resposta .h3{
 
 main .card .retorno .valor-resposta{
     font-size: 1.3em;
+}
+
+main .card .tabela-visualizacao{
+    border-collapse: collapse;
+}
+
+main .card .tabela-visualizacao th{
+    margin: 0 0.5em;
 }
 
 .btn{
@@ -152,6 +163,26 @@ main .card .retorno .valor-resposta{
     background-color: #08477a;
 }
 
+.btn-deletar {
+    margin: 0;
+    width: 30%;
+    height: 50px;
+    background: #dc3545;
+}
+.btn-deletar:hover {
+    background: #bd2130;
+}
+
+.btn-atualizar {
+    margin: 0;
+    width: 90%;
+    padding: 0.5em;
+    background: rgb(9, 165, 53);
+}
+.btn-atualizar:hover {
+    background: rgb(11, 135, 47);
+}
+
 .address {
     margin-bottom: 1rem;
     padding: 1rem;
@@ -165,4 +196,11 @@ main .card .retorno .valor-resposta{
 
 .container{
     margin: auto;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
