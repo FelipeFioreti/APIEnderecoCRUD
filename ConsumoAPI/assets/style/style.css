@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -91,6 +92,84 @@ main .card input[type="text"]:focus {
     background-color: #fff;
 }
 
+.btn-voltar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.3em !important;
+    padding: 0.5em;
+    width: 120px;
+    height: 40px;
+    background-color: #000000;
+}
+
+.btn-voltar:hover{
+    background-color: #181818ca;
+}
+
+.btn-voltar a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 550;
+}
+
+/*
+Página de Visualizar
+*/
+
+.card-visualizar{
+    max-width: 1000px !important;
+}
+
+main .card .tabela-visualizacao{
+    border-collapse: collapse;
+}
+
+main .card .tabela-visualizacao th{
+    padding: 0 0.5em;
+}
+
+main .card .tabela-visualizacao td{
+    padding: 0.7em;
+}
+
+.btn-deletar-visualizar{
+    width: 30%;
+    padding: 0.2em;
+    height: 50px;
+    background: #dc3545; 
+    font-size: 1.4em;
+}
+
+.btn-deletar-visualizar:hover{
+    background: #bd2130;
+}
+
+.btn-deletar-visualizar:active{
+    background: #9b1c2a;
+}
+
+.btn-atualizar-visualizar{
+    width: 30%;
+    padding: 0.2em;
+    height: 50px;
+    background: rgb(9, 165, 53);
+    font-size: 1.4em;
+}
+
+.btn-atualizar-visualizar:hover{
+    background: rgb(11, 135, 47);
+}
+
+.btn-atualizar-visualizar:active{
+    background: rgb(7, 119, 39);
+}
+
+/*
+Página Inicial
+*/
+
 .retorno{
     display: none;
 }
@@ -113,13 +192,6 @@ main .card .retorno .valor-resposta{
     font-size: 1.3em;
 }
 
-main .card .tabela-visualizacao{
-    border-collapse: collapse;
-}
-
-main .card .tabela-visualizacao th{
-    margin: 0 0.5em;
-}
 
 .btn{
     margin: 0 1em;
@@ -131,6 +203,7 @@ main .card .tabela-visualizacao th{
     cursor: pointer;
     transition: 0.3s ease;
     box-shadow: 1px 1px 8px 0px #000000ba;
+    text-decoration: none;
 }
 
 .btn-cadastrar {
@@ -163,6 +236,10 @@ main .card .tabela-visualizacao th{
     background-color: #08477a;
 }
 
+/*
+Página de Deletar
+*/
+
 .btn-deletar {
     margin: 0;
     width: 30%;
@@ -173,6 +250,10 @@ main .card .tabela-visualizacao th{
     background: #bd2130;
 }
 
+/*
+Página de Atualização
+*/
+
 .btn-atualizar {
     margin: 0;
     width: 90%;
@@ -181,17 +262,6 @@ main .card .tabela-visualizacao th{
 }
 .btn-atualizar:hover {
     background: rgb(11, 135, 47);
-}
-
-.address {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-.address p {
-    margin: 0.5rem 0;
 }
 
 .container{

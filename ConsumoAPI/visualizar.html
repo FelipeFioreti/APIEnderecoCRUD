@@ -13,17 +13,16 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="#" class="">CRUDEndereços</a>
+                <a href="index.html">CRUD Endereços</a>
             </div>
             <ul class="menu">
-                <li><a href="#consulta">Consulta</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="index.html">Consulta e Cadastro</a></li>
+                <li><a href="visualizar.html">Visualizar</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="card container">
+        <section class="card card-visualizar container center">
             <h1>Endereços</h1>
 
             <table class="tabela-visualizacao">
@@ -82,8 +81,8 @@
                                 <td>${endereco.bairro}</td>
                                 <td>${endereco.cidade}</td>
                                 <td>${endereco.uf}</td>
-                                <td><a class="btn" type="button" href="atualizar.html?id=${endereco.id}">Editar</a>
-                                <a "btn" type="button" href="deletar.html?id=${endereco.id}">Excluir</a></td>
+                                <td><a class="btn btn-atualizar-visualizar" type="button" href="atualizar.html?id=${endereco.id}">Editar</a></td>
+                                <td><a class="btn btn-deletar-visualizar" type="button" href="deletar.html?id=${endereco.id}">Excluir</a></td>
                             `;
 
                             tbody.appendChild(tr);

@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atualizar Endereços</title>
   <link rel="stylesheet" href="assets/style/style.css">
 </head>
+
 <body>
   <header>
     <nav class="navbar">
-        <div class="logo">
-            <a href="#" class="">CRUD Endereços</a>
-        </div>
-        <ul class="menu">
-            <li><a href="#consulta">Consulta</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
+      <div class="logo">
+        <a href="index.html">CRUD Endereços</a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Consulta e Cadastro</a></li>
+        <li><a href="visualizar.html">Visualizar</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
   <main>
+    <div class="btn-voltar btn">
+      <a href="visualizar.html">Voltar</a>
+    </div>
     <section class="card container">
       <h1>Atualizar Endereço</h1>
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep">
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" name="cep">
 
-        <label for="complemento">Complemento:</label>
-        <input type="text" id="complemento" name="complemento">
+      <label for="complemento">Complemento:</label>
+      <input type="text" id="complemento" name="complemento">
 
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" >
-        
-        <div class="campo-botao">
-          <button class="btn btn-atualizar" type="button" onclick="atualizarEndereco()">Atualizar</button>
-        </div>
+      <label for="numero">Número:</label>
+      <input type="text" id="numero" name="numero">
+
+      <div class="campo-botao">
+        <button class="btn btn-atualizar" type="button" onclick="atualizarEndereco()">Atualizar</button>
+      </div>
 
     </section>
   </main>
@@ -48,16 +52,16 @@
       const id = params.get("id");
 
       fetch(`https://viacep.com.br/ws/${id}}/json/`).then(response => {
-          if(!response.ok) {
-              console.log("Erro na requisição:", response.statusText);
-              throw new Error("Erro na requisição");
-          }
-  
-          alert("Endereço atualizado com sucesso!");
+        if (!response.ok) {
+          console.log("Erro na requisição:", response.statusText);
+          throw new Error("Erro na requisição");
+        }
+
+        alert("Endereço atualizado com sucesso!");
       });
-  }
-  
+    }
+
   </script>
 </body>
-</html>
 
+</html>
