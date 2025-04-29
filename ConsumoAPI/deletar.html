@@ -27,7 +27,7 @@
         <section class="card container center">
             <h1>Confirmar Remoção</h1>
             <p>Você tem certeza que deseja remover o endereço?</p>
-            <button class="btn btn-deletar" onclick="alert('Endereço removido!')">Remover</button>
+            <button class="btn btn-deletar" onclick="deletarEndereco()">Remover</button>
         </section>
     </main>
     <script>
@@ -35,7 +35,11 @@
         const id = params.get("id");
 
         function deletarEndereco() {
-            fetch(`https://viacep.com.br/ws/${id}/json/`).then(response => {
+            fetch(`https://localhost:7192/api/Endereco?id=${id}`,
+            {method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }}).then(response => {
                 if (!response.ok) {
                     console.log("Erro na requisição:", response.statusText);
                     throw new Error("Erro na requisição");

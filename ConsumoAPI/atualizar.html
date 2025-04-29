@@ -51,7 +51,12 @@
       const numero = document.getElementById("numero").value;
       const id = params.get("id");
 
-      fetch(`https://viacep.com.br/ws/${id}}/json/`).then(response => {
+      fetch(`https://localhost:7192/api/Endereco?id=${id}&cep=${cep}&complemento=${complemento}&numero=${numero}`,{
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
         if (!response.ok) {
           console.log("Erro na requisição:", response.statusText);
           throw new Error("Erro na requisição");

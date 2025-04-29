@@ -10,7 +10,7 @@ function buscarCEP() {
         return;
     }
 
-    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(response => response.json()).then(data => {
+    fetch(`https://localhost:7192/api/Endereco/EnderecoViaCep?cep=${cep}`).then(response => response.json()).then(data => {
         if(data.erro){
             alert("CEP não encontrado.");
             return;
@@ -40,8 +40,15 @@ function buscarCEP() {
 function cadastrarEndereco() {
 
     const cep = document.getElementById("cep").value; 
-    
-    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(response => {
+    const complemento = document.getElementById("complemento").value;
+    const numero = document.getElementById("numero").value;
+
+    fetch(`https://localhost:7192/api/Endereco?cep=${cep}&complemento=${complemento}&numero=${numero}`
+        , {method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            }}
+    ).then(response => {
         if(!response.ok) {
             console.log("Erro na requisição:", response.statusText);
             throw new Error("Erro na requisição");
@@ -51,3 +58,12 @@ function cadastrarEndereco() {
     });
 }
 
+/*
+ headers = {
+            "Content-Type": "application/json"
+        }, body = JSON.stringify({
+            cep: cep,
+            complemento: complemento,
+            numero: numero
+        }),
+*/

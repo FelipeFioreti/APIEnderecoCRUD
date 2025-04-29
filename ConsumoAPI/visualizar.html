@@ -39,55 +39,42 @@
                 </thead>
                 <tbody id="enderecos-lista">
 
-                    <script>
-
-                        let enderecos = [
-                            { id: "11", cep: "12345-678", logradouro: "Rua A", complemento: "aa", numero: "211", bairro: "Bairro A", cidade: "Cidade A", uf: "Estado A" },
-                            { id: "12", cep: "98765-432", logradouro: "Rua B", complemento: "bb", numero: "211", bairro: "Bairro B", cidade: "Cidade B", uf: "Estado B" }
-                        ];
-
-                        /*
-                        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(response => response.json()).then(data => {
+                    <script> 
+                       
+                        const enderecos =  fetch(`https://localhost:7192/api/Endereco/EnderecoDatabase`).then(response => response.json()).then(data => {
                             if (data.erro) {
                                 alert("Erro ao buscar Dados no banco de dados");
                                 return;
                             }
-                            enderecos.push({
-
-                                id: data.id || "",
-                                cep: data.cep || "",
-                                logradouro: data.logradouro || "",
-                                complemento: data.complemento || "",
-                                numero: data.numero || "",
-                                bairro: data.bairro || "",
-                                cidade: data.localidade || "",
-                                uf: data.uf || ""
-                            });
-
+                            return data;
+                            
                         }).catch(error => {
                             alert("Erro ao buscar CEP");
                         })
-                        */
+                        
+                        console.log(enderecos);
+
                         const tbody = document.getElementById('enderecos-lista');
 
-                        enderecos.forEach(endereco => {
-                            const tr = document.createElement('tr');
+                        enderecos.then(data => {
+                            data.forEach(endereco => {
+                                const tr = document.createElement('tr');
 
-                            tr.innerHTML = `
-                                <td>${endereco.cep}</td>
-                                <td>${endereco.logradouro}</td>
-                                <td>${endereco.complemento}</td>
-                                <td>${endereco.numero}</td>
-                                <td>${endereco.bairro}</td>
-                                <td>${endereco.cidade}</td>
-                                <td>${endereco.uf}</td>
-                                <td><a class="btn btn-atualizar-visualizar" type="button" href="atualizar.html?id=${endereco.id}">Editar</a></td>
-                                <td><a class="btn btn-deletar-visualizar" type="button" href="deletar.html?id=${endereco.id}">Excluir</a></td>
-                            `;
+                                tr.innerHTML = `
+                                    <td>${endereco.cep}</td>
+                                    <td>${endereco.logradouro}</td>
+                                    <td>${endereco.complemento}</td>
+                                    <td>${endereco.numero}</td>
+                                    <td>${endereco.bairro}</td>
+                                    <td>${endereco.cidade}</td>
+                                    <td>${endereco.uf}</td>
+                                    <td><a class="btn btn-atualizar-visualizar" type="button" href="atualizar.html?id=${endereco.id}">Editar</a></td>
+                                    <td><a class="btn btn-deletar-visualizar" type="button" href="deletar.html?id=${endereco.id}">Excluir</a></td>
+                                `;
 
-                            tbody.appendChild(tr);
-                        });
-
+                                tbody.appendChild(tr);
+                            });
+                        }) 
 
                     </script>
                 </tbody>
