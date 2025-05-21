@@ -14,7 +14,7 @@ namespace APITrabalhoWilton.Controllers
     public class EnderecoController : ControllerBase
     {
         
-        [HttpGet("EnderecoDatabase", Name = "GetEnderecoDatabase")]
+        [HttpGet("EnderecoDatabase")]
         public IEnumerable<GetEnderecoDatabaseDTO> GetEnderecoDatabase()
         {
 
@@ -24,7 +24,7 @@ namespace APITrabalhoWilton.Controllers
             return listaEnderecos;
         }
 
-        [HttpGet("EnderecoViaCep", Name = "GetEnderecoViaCep")]
+        [HttpGet("EnderecoViaCep")]
         public GetEnderecoViaCepDTO GetEnderecoViaCep(string cep)
         {
 
@@ -61,8 +61,8 @@ namespace APITrabalhoWilton.Controllers
         }
         
 
-        [HttpPost(Name = "PostEndereco")]
-        public void PostDatabase(string cep, string complemento, string numero)
+        [HttpPost("PostEndereco")]
+        public void PostDatabase([FromBody] string cep, string complemento, string numero)
         {
             var enderecoGet = GetEnderecoViaCep(cep);
 
@@ -87,15 +87,15 @@ namespace APITrabalhoWilton.Controllers
             database.PostData(endereco);
         }
 
-        [HttpDelete(Name = "DeleteEndereco")]
+        [HttpDelete("DeleteEndereco")]
         public void DeleteEndereco(Guid id)
         {
             var database = new DatabaseEndereco();
             database.DeleteData(id);
         }
 
-        [HttpPut(Name = "PutEndereco")]
-        public void PutEndereco(Guid id, string cep, string complemento, string numero)
+        [HttpPut("PutEndereco")]
+        public void PutEndereco(Guid id,[FromBody] string cep, string complemento, string numero)
         {
             var enderecoGet = GetEnderecoViaCep(cep);
             if (enderecoGet == null)

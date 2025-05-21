@@ -55,7 +55,12 @@
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({
+          cep: cep,
+          complemento: complemento,
+          numero: numero
+        })
       }).then(response => {
         if (!response.ok) {
           console.log("Erro na requisição:", response.statusText);
