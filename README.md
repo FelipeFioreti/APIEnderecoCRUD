@@ -23,6 +23,7 @@ CREATE TABLE [dbo].[Endereco] (
   [UF] CHAR(2) NOT NULL,
   PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+```
 
 
 
