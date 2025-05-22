@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="assets/style/style.css">
     <script src="assets/script/script.js"></script>
 </head>
+
 <body>
     <main>
         <header>
@@ -27,9 +29,9 @@
 
             <div class="campo">
                 <label for="cep">CEP: </label>
-                <input type="text" name="cep" maxlength="9" placeholder="Digite o CEP" id="cep">
+                <input type="text" name="cep" maxlength="8" placeholder="Apenas números Ex: 11110000" id="cep">
             </div>
-            
+
             <div id="retorno" class="retorno">
 
                 <div class="resposta">
@@ -46,9 +48,10 @@
                     <h3>
                         Complemento
                     </h3>
-                    <input class="adiconal-input" type="text" id="complemento" name="complemento" placeholder="Apartamento, bloco, referência etc.">
+                    <input class="adiconal-input" type="text" id="complemento" name="complemento"
+                        placeholder="Apartamento, bloco, referência etc.">
                 </div>
-                
+
                 <div class="adiconal">
                     <h3>
                         Numero
@@ -69,7 +72,7 @@
 
                 <div class="resposta">
                     <h3>
-                        Cidade  
+                        Cidade
                     </h3>
 
                     <span id="cidade" class="valor-resposta">
@@ -91,10 +94,12 @@
 
             <div class="campo-botao">
                 <button type="button" class="btn btn-consultar" onclick="buscarCEP()">Consultar Endereço</button>
-                <button type="button" id="btn-cadastrar" class="btn btn-cadastrar retorno" onclick="cadastrarEndereco()">Cadastrar Endereço</button>
-                
+                <button type="button" id="btn-cadastrar" class="btn btn-cadastrar retorno"
+                    onclick="cadastrarEndereco()">Cadastrar Endereço</button>
+
             </div>
         </section>
     </main>
 </body>
+
 </html>

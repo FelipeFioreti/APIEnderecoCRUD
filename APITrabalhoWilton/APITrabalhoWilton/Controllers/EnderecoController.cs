@@ -68,7 +68,7 @@ namespace APITrabalhoWilton.Controllers
                     return BadRequest("Erro ao processar resposta");
                 }
 
-                if (endereco.Cep == null)
+                if (endereco.Cep == null || endereco.Cep == "")
                 {
                     return BadRequest("Erro. Endereço não pode ser nulo.");
                 }
@@ -154,13 +154,18 @@ namespace APITrabalhoWilton.Controllers
                 return NotFound("Endereço não encontrado");
             }
 
+            if (enderecoViaCep.Cep == "")
+            {
+                return NotFound("Endereço não encontrado");
+            }
+
             var endereco = new Endereco
             {
                 Id = id,
                 Cep = enderecoViaCep.Cep,
                 Logradouro = enderecoViaCep.Logradouro,
-                Complemento = enderecoViaCep.Complemento,
-                Numero = enderecoViaCep.Numero,
+                Complemento = dto.Complemento,
+                Numero = dto.Numero,
                 Bairro = enderecoViaCep.Bairro,
                 Cidade = enderecoViaCep.Localidade,
                 UF = enderecoViaCep.UF

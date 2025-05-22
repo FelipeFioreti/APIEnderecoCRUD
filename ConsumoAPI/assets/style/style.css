@@ -74,7 +74,7 @@ main .card label{
     font-weight: 550;
 }
 
-main .card input[type="text"]{
+main .card input{
     width: 100%;
     margin: 0.7em 0;
     padding: 0.8em;
@@ -86,7 +86,7 @@ main .card input[type="text"]{
     box-sizing: border-box;
 }
 
-main .card input[type="text"]:focus {
+main .card input:focus {
     border-color: #007bff;
     outline: none;
     background-color: #fff;

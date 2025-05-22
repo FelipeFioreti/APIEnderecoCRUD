@@ -27,13 +27,13 @@
     <section class="card container">
       <h1>Atualizar Endereço</h1>
       <label for="cep">CEP:</label>
-      <input type="text" id="cep" name="cep">
+      <input placeholder="Apenas Números Ex: 11110000" type="text" id="cep" maxlength="8" name="cep">
 
       <label for="complemento">Complemento:</label>
       <input type="text" id="complemento" name="complemento">
 
       <label for="numero">Número:</label>
-      <input type="text" id="numero" name="numero">
+      <input type="number" id="numero" name="numero">
 
       <div class="campo-botao">
         <button class="btn btn-atualizar" type="button" onclick="atualizarEndereco()">Atualizar</button>
@@ -51,7 +51,7 @@
       const numero = document.getElementById("numero").value;
       const id = params.get("id");
 
-      fetch(`https://localhost:7192/api/PutEndereco/${id}`,{
+      fetch(`https://localhost:7192/api/Endereco/PutEndereco/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -62,12 +62,21 @@
           numero: numero
         })
       }).then(response => {
+
+        if (response.status === 404) {
+          alert("Endereço não encontrado.");
+          throw new Error("Endereço não encontrado.");
+        }
+
         if (!response.ok) {
           console.log("Erro na requisição:", response.statusText);
           throw new Error("Erro na requisição");
         }
 
         alert("Endereço atualizado com sucesso!");
+
+        window.location.href = "visualizar.html";
+
       });
     }
 
