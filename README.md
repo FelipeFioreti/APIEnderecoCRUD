@@ -1,6 +1,6 @@
 # API de Endereços
 
-Este repositório contém um projeto de CRUD (Create, Read, Update, Delete) para gerenciamento de endereços, desenvolvido em **C#** e interage diretamente com uma tabela no **SQL Server** para realizar as operações básicas de cadastro de endereços.
+Este repositório contém um projeto CRUD (Create, Read, Update, Delete) para gerenciamento de endereços, desenvolvido em **C#** e interage diretamente com uma tabela no **SQL Server** para realizar as operações básicas de cadastro de endereços.
 
 ### 🛠️ **O que foi utilizado:**
 - **Linguagens:** C# e JavaScript
