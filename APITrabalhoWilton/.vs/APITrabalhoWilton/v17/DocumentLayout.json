@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\",
+  "WorkspaceRootPath": "D:\\Felipe\\Estudos\\Curso Wilton\\TrabalhoAPI\\APITrabalhoWilton\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|d:\\usuarios\\felip\\documents\\projetos\\trabalhowilton\\apitrabalhowilton\\apitrabalhowilton\\controllers\\enderecocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|d:\\felipe\\estudos\\curso wilton\\trabalhoapi\\apitrabalhowilton\\apitrabalhowilton\\controllers\\enderecocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|solutionrelative:apitrabalhowilton\\controllers\\enderecocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|d:\\usuarios\\felip\\documents\\projetos\\trabalhowilton\\apitrabalhowilton\\apitrabalhowilton\\database\\databaseendereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|d:\\felipe\\estudos\\curso wilton\\trabalhoapi\\apitrabalhowilton\\apitrabalhowilton\\database\\databaseendereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|solutionrelative:apitrabalhowilton\\database\\databaseendereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|d:\\usuarios\\felip\\documents\\projetos\\trabalhowilton\\apitrabalhowilton\\apitrabalhowilton\\dtos\\enderecodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35B5893F-305C-4AA8-A5BB-B21050481842}|APITrabalhoWilton\\APITrabalhoWilton.csproj|solutionrelative:apitrabalhowilton\\dtos\\enderecodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,42 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "DatabaseEndereco.cs",
-              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
+              "DocumentMoniker": "D:\\Felipe\\Estudos\\Curso Wilton\\TrabalhoAPI\\APITrabalhoWilton\\APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
               "RelativeDocumentMoniker": "APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
-              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
+              "ToolTip": "D:\\Felipe\\Estudos\\Curso Wilton\\TrabalhoAPI\\APITrabalhoWilton\\APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
               "RelativeToolTip": "APITrabalhoWilton\\DataBase\\DatabaseEndereco.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwCcAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T19:39:27.573Z",
+              "WhenOpened": "2025-05-22T00:24:08.797Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EnderecoDTO.cs",
-              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\DTOs\\EnderecoDTO.cs",
-              "RelativeDocumentMoniker": "APITrabalhoWilton\\DTOs\\EnderecoDTO.cs",
-              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\DTOs\\EnderecoDTO.cs",
-              "RelativeToolTip": "APITrabalhoWilton\\DTOs\\EnderecoDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T19:37:47.435Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "EnderecoController.cs",
-              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\Controllers\\EnderecoController.cs",
+              "DocumentMoniker": "D:\\Felipe\\Estudos\\Curso Wilton\\TrabalhoAPI\\APITrabalhoWilton\\APITrabalhoWilton\\Controllers\\EnderecoController.cs",
               "RelativeDocumentMoniker": "APITrabalhoWilton\\Controllers\\EnderecoController.cs",
-              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\TrabalhoWilton\\APITrabalhoWilton\\APITrabalhoWilton\\Controllers\\EnderecoController.cs",
+              "ToolTip": "D:\\Felipe\\Estudos\\Curso Wilton\\TrabalhoAPI\\APITrabalhoWilton\\APITrabalhoWilton\\Controllers\\EnderecoController.cs",
               "RelativeToolTip": "APITrabalhoWilton\\Controllers\\EnderecoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAA5wDMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T18:03:43.879Z",
               "EditorCaption": ""

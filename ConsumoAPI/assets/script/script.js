@@ -12,7 +12,7 @@ function buscarCEP() {
         return;
     }
 
-    fetch(`${API_URL}/EnderecoViaCep?cep=${cep}`).then(response => 
+    fetch(`${API_URL}/EnderecoViaCep/${cep}`).then(response => 
         {
         if(!response.ok) {
             console.log("Erro na requisição:", response.statusText);
@@ -48,12 +48,12 @@ function cadastrarEndereco() {
     const complemento = document.getElementById("complemento").value;
     const numero = document.getElementById("numero").value;
 
-    fetch(`https://localhost:7192/api/Endereco?cep=${cep}&complemento=${complemento}&numero=${numero}`
+    fetch(`https://localhost:7192/api/PostEndereco`
         , {method: "POST",
             headers: {
               'Content-Type': 'application/json'
             },
-        body: JSON.stringify({
+            body: JSON.stringify({
                 cep: cep,
                 complemento: complemento,
                 numero: numero

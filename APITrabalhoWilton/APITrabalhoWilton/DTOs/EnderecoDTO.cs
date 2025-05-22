@@ -4,12 +4,12 @@ namespace APITrabalhoWilton.DTOs
 {
     public record EnderecoDTO 
     {
-        public string Cep { get; set; }
-        public string Logradouro { get; set; } = String.Empty;
-        public string Complemento { get; set; } = String.Empty;
-        public string Numero { get; set; } = String.Empty;
-        public string Bairro { get; set; } = String.Empty;
-        public string Cidade { get; set; } = String.Empty;
-        public string UF { get; set; } = String.Empty;
+        public string Cep { get; set; } = string.Empty;
+        public string Logradouro { get; set; } = string.Empty;
+        public string Complemento { get; set; } = string.Empty;
+        public string Numero { get; set; } = string.Empty;
+        public string Bairro { get; set; } = string.Empty;
+        public string Cidade { get; set; } = string.Empty;
+        public string UF { get; set; } = string.Empty;
     }
 }

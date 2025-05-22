@@ -5,6 +5,7 @@ using System.Linq;
 using APITrabalhoWilton.Models;
 using Newtonsoft.Json.Linq;
 using APITrabalhoWilton.DTOs;
+using Newtonsoft.Json;
 
 namespace APITrabalhoWilton.Controllers
 {
@@ -13,108 +14,161 @@ namespace APITrabalhoWilton.Controllers
     [Route("api/[controller]")]
     public class EnderecoController : ControllerBase
     {
-        
+
+        private readonly DatabaseEndereco databaseEndereco;
+
+        public EnderecoController(DatabaseEndereco databaseEndereco)
+        {
+                this.databaseEndereco = databaseEndereco;
+        }
+
         [HttpGet("EnderecoDatabase")]
         public IEnumerable<GetEnderecoDatabaseDTO> GetEnderecoDatabase()
         {
+            var listaEnderecos = databaseEndereco.GetData();
 
-            var database = new DatabaseEndereco();
-            var listaEnderecos = database.GetData();
+            List<GetEnderecoDatabaseDTO> listaEnderecosDTO = new List<GetEnderecoDatabaseDTO>();
+            foreach (var endereco in listaEnderecos)
+            {
+                var enderecoDTO = new GetEnderecoDatabaseDTO
+                {
+                    Id = endereco.Id,
+                    Cep = endereco.Cep,
+                    Logradouro = endereco.Logradouro,
+                    Complemento = endereco.Complemento,
+                    Numero = endereco.Numero,
+                    Bairro = endereco.Bairro,
+                    Cidade = endereco.Cidade,
+                    UF = endereco.UF
+                };
 
-            return listaEnderecos;
+                listaEnderecosDTO.Add(enderecoDTO);
+            }
+
+            return listaEnderecosDTO; 
         }
-
-        [HttpGet("EnderecoViaCep")]
-        public GetEnderecoViaCepDTO GetEnderecoViaCep(string cep)
+        
+        // Método para obter o endereço utilizando Api externa ViaCep
+        [HttpGet("EnderecoViaCep/{cep}")]
+        public async Task<ActionResult<GetEnderecoViaCepDTO>> GetEnderecoViaCep(string cep)
         {
 
             Uri uri = new Uri($"https://viacep.com.br/ws/{cep}/json/");
 
             HttpClient client = new HttpClient();
-            var response = client.GetAsync(uri).Result;
+            var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
             {
-                var json = response.Content.ReadAsStringAsync().Result;
-                var endereco = Newtonsoft.Json.JsonConvert.DeserializeObject<GetEnderecoViaCepDTO>(json);
+                var json = await response.Content.ReadAsStringAsync();
+                var endereco = JsonConvert.DeserializeObject<GetEnderecoViaCepDTO>(json);
                 
                 if (endereco == null)
                 {
-                    return null;
+                    return BadRequest("Erro ao processar resposta");
                 }
 
-                if (endereco.Cep != null)
+                if (endereco.Cep == null)
                 {
-                    if (endereco.Cep.Contains("-"))
-                    {
-                        endereco.Cep = endereco.Cep.Replace("-", "");
-                    }
+                    return BadRequest("Erro. Endereço não pode ser nulo.");
                 }
 
-                return endereco;
+                endereco.Cep = endereco.Cep.Replace("-", "");
+
+                return Ok(endereco);
             }
             else
+            {
+                return NotFound("CEP não encontrado.");
+            }
+
+        }
+
+        // Método para obter o endereço via CEP internamente
+        private async Task<GetEnderecoViaCepDTO?> GetEnderecoViaCepInterno(string cep)
+        {
+
+            Uri uri = new Uri($"https://viacep.com.br/ws/{cep}/json/");
+
+            HttpClient client = new HttpClient();
+            
+            var response = await client.GetAsync(uri);
+
+            if (!response.IsSuccessStatusCode) {
+                return null;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            var endereco = JsonConvert.DeserializeObject<GetEnderecoViaCepDTO>(json);
+            
+            if(endereco == null)
             {
                 return null;
             }
 
+            if (endereco.Cep == null)
+            {
+                return null;
+            }
+
+            endereco.Cep = endereco.Cep.Replace("-", "");
+
+            return endereco;
         }
-        
 
         [HttpPost("PostEndereco")]
-        public void PostDatabase([FromBody] string cep, string complemento, string numero)
+        public async Task<IActionResult> PostDatabase([FromBody] PostEnderecoDTO dto)
         {
-            var enderecoGet = GetEnderecoViaCep(cep);
+            var enderecoViaCep = await GetEnderecoViaCepInterno(dto.Cep);
+            if (enderecoViaCep == null)
+                return NotFound("CEP inválido");
 
-            if (enderecoGet == null)
+            var endereco = new Endereco
             {
-                return;
-            }
-            
-            var endereco = new EnderecoDTO
-            {
-                Cep = enderecoGet.Cep,
-                Logradouro = enderecoGet.Logradouro,
-                Complemento = complemento,
-                Numero = numero,
-                Bairro = enderecoGet.Bairro,
-                Cidade = enderecoGet.Localidade,
-                UF = enderecoGet.UF
+                Cep = enderecoViaCep.Cep,
+                Logradouro = enderecoViaCep.Logradouro,
+                Complemento = dto.Complemento,
+                Numero = dto.Numero,
+                Bairro = enderecoViaCep.Bairro,
+                Cidade = enderecoViaCep.Localidade,
+                UF = enderecoViaCep.UF
             };
 
-            var database = new DatabaseEndereco();
-
-            database.PostData(endereco);
+            databaseEndereco.PostData(endereco);
+            return Ok();
         }
 
-        [HttpDelete("DeleteEndereco")]
+        [HttpDelete("DeleteEndereco/{id}")]
         public void DeleteEndereco(Guid id)
         {
-            var database = new DatabaseEndereco();
-            database.DeleteData(id);
+            databaseEndereco.DeleteData(id);
         }
 
-        [HttpPut("PutEndereco")]
-        public void PutEndereco(Guid id,[FromBody] string cep, string complemento, string numero)
+        [HttpPut("PutEndereco/{id}")]
+        public async Task<IActionResult> PutEndereco(Guid id,[FromBody] UpdateEnderecoDTO dto)
         {
-            var enderecoGet = GetEnderecoViaCep(cep);
-            if (enderecoGet == null)
+            var enderecoViaCep = await GetEnderecoViaCepInterno(dto.Cep);
+
+            if (enderecoViaCep == null)
             {
-                return;
+                return NotFound("Endereço não encontrado");
             }
-            var endereco = new UpdateEnderecoDTO
+
+            var endereco = new Endereco
             {
                 Id = id,
-                Cep = enderecoGet.Cep,
-                Logradouro = enderecoGet.Logradouro,
-                Complemento = complemento,
-                Numero = numero,
-                Bairro = enderecoGet.Bairro,
-                Cidade = enderecoGet.Localidade,
-                UF = enderecoGet.UF
+                Cep = enderecoViaCep.Cep,
+                Logradouro = enderecoViaCep.Logradouro,
+                Complemento = enderecoViaCep.Complemento,
+                Numero = enderecoViaCep.Numero,
+                Bairro = enderecoViaCep.Bairro,
+                Cidade = enderecoViaCep.Localidade,
+                UF = enderecoViaCep.UF
             };
-            var database = new DatabaseEndereco();
-            database.UpdateData(endereco);
+
+            databaseEndereco.UpdateData(endereco);
+
+            return Ok("Endereço atualizado com sucesso.");
         }
     }
 }

@@ -35,7 +35,7 @@
         const id = params.get("id");
 
         function deletarEndereco() {
-            fetch(`https://localhost:7192/api/Endereco?id=${id}`,
+            fetch(`https://localhost:7192/api/DeleteEndereco/${id}`,
             {method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json'

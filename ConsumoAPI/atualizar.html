@@ -51,7 +51,7 @@
       const numero = document.getElementById("numero").value;
       const id = params.get("id");
 
-      fetch(`https://localhost:7192/api/Endereco?id=${id}&cep=${cep}&complemento=${complemento}&numero=${numero}`,{
+      fetch(`https://localhost:7192/api/PutEndereco/${id}`,{
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

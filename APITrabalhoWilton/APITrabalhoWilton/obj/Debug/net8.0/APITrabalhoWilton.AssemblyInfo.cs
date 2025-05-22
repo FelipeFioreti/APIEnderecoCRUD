@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APITrabalhoWilton")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57c0eef1695c98c09d88d41bc9b21ed86d7bbf38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7162dfd7974adc7f0cac37283a89cbadee1623b")]
 [assembly: System.Reflection.AssemblyProductAttribute("APITrabalhoWilton")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APITrabalhoWilton")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,7 +1,10 @@
 ﻿namespace APITrabalhoWilton.DTOs
 {
-    public record UpdateEnderecoDTO : EnderecoDTO
+    public record UpdateEnderecoDTO
     {
-        public Guid Id { get; set; }
+        public string Cep { get; set; } = String.Empty;
+        public string Complemento { get; set; } = String.Empty;
+        public string Numero { get; set; } = String.Empty;
+
     }
 }

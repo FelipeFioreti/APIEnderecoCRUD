@@ -17,9 +17,9 @@ namespace APITrabalhoWilton.DataBase
             return connectionString;
         }
 
-        public List<GetEnderecoDatabaseDTO> GetData()
+        public List<Endereco> GetData()
         {
-            List<GetEnderecoDatabaseDTO> enderecos = new List<GetEnderecoDatabaseDTO>();
+            List<Endereco> enderecos = new List<Endereco>();
 
             try
             {
@@ -34,7 +34,7 @@ namespace APITrabalhoWilton.DataBase
                             {
                                 while (reader.Read())
                                 {
-                                    var endereco = new GetEnderecoDatabaseDTO
+                                    var endereco = new Endereco
                                     {
                                         Id = Guid.Parse(reader["Id"].ToString()!),
                                         Cep = reader["Cep"].ToString()!,
@@ -50,7 +50,7 @@ namespace APITrabalhoWilton.DataBase
                             }
                             else
                             {
-                                return new List<GetEnderecoDatabaseDTO>();
+                                return new List<Endereco>();
                             }
                         }
                     }
@@ -63,7 +63,7 @@ namespace APITrabalhoWilton.DataBase
             return enderecos;
         }
 
-        public void PostData(EnderecoDTO endereco)
+        public void PostData(Endereco endereco)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace APITrabalhoWilton.DataBase
             }
         }
 
-        public void UpdateData(UpdateEnderecoDTO endereco)
+        public void UpdateData(Endereco endereco)
         {
             try
             {
